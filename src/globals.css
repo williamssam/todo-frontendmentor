@@ -110,6 +110,10 @@ button:active {
 	padding-top: 6rem;
 }
 
+.dark .main-header {
+	background: url('./images/bg-mobile-dark.jpg') no-repeat center/cover;
+}
+
 nav {
 	display: flex;
 	align-items: center;
@@ -305,8 +309,9 @@ main .container {
 @media screen and (min-width: 764px) {
 	.main-header {
 		background: url('./images/bg-desktop-light.jpg') no-repeat center/cover;
-		/* height: 40vh;
-	color: var(--todo-bg);
-	padding-top: 6rem; */
+	}
+
+	.dark .main-header {
+		background: url('./images/bg-desktop-dark.jpg') no-repeat center/cover;
 	}
 }

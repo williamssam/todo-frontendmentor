@@ -6,15 +6,11 @@ const Header = () => {
 	const handleSwitcher = () => {
 		if (theme === 'dark') {
 			setTheme('light')
-			console.log('dark-theme', theme)
 			document.documentElement.className = theme
 		} else {
 			setTheme('dark')
-			console.log('light-theme', theme)
-
 			document.documentElement.className = theme
 		}
-		localStorage.setItem('themeStorage', theme)
 	}
 
 	return (

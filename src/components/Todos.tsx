@@ -1,5 +1,4 @@
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import FlipMove from 'react-flip-move'
 import SingleTodo from './SingleTodo'
 import TodoFilterBtns from './TodoFilterBtns'
 import { Todo } from '../utilities/Todo'
@@ -10,10 +9,17 @@ interface TodosProps {
 	setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
+// By extending IItem with the Record<string, any> you allow an object to contain other string keys with any values along with those defined in the interface. The nice part is that you still have the autocompletion for the defined properties.
+export interface IItem extends Record<string, any> {
+	All: () => boolean
+	Active: (todo: { isCompleted: boolean }) => boolean
+	Completed: (todo: { isCompleted: boolean }) => boolean
+}
+
 const Todos = ({ todos, setTodos }: TodosProps) => {
 	const [filter, setFilter] = useState('All')
 
-	const FILTER_MAP = {
+	const FILTER_MAP: IItem = {
 		All: () => true,
 		Active: (todo: { isCompleted: boolean }) => !todo.isCompleted,
 		Completed: (todo: { isCompleted: boolean }) => todo.isCompleted,
