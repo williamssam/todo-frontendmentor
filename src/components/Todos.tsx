@@ -40,7 +40,7 @@ const Todos = ({ todos, setTodos }: TodosProps) => {
 
 	return (
 		<>
-			<section className='todo-container'>
+			<div className='todo-container'>
 				<DragDropContext onDragEnd={handleOnDragEnd}>
 					<Droppable droppableId='todo'>
 						{(provided) => (
@@ -86,7 +86,7 @@ const Todos = ({ todos, setTodos }: TodosProps) => {
 					</p>
 					<button onClick={clearCompletedTodo}>Clear Completed</button>
 				</footer>
-			</section>
+			</div>
 
 			<TodoFilterBtns setFilter={setFilter} filter={filter} />
 		</>
